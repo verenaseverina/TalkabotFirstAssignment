@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <title>Talkabot</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 logoCol">
+          <img class="logo img-responsive" src="assets/img/2-10.png">
+        </div>
+        <div class="col-md-4 buttonCol">
+          <a href="chat-page.html" id="chat" data-animation="ripple">CHAT</a>
+          <a href="../website/login.html" id="login" data-animation="ripple">LOGIN</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      const isMobile = window.navigator.userAgent.match(/Mobile/) && window.navigator.userAgent.match(/Mobile/)[0] === "Mobile";
+      const event = isMobile ? "touchstart" : "click";
+
+      const button = document.querySelectorAll('*[data-animation="ripple"]'),
+            container = document.querySelector(".container");
+
+      for (var i = 0; i < button.length; i++) {
+        const currentBtn = button[i];
+        
+        currentBtn.addEventListener(event, function(e) {
+          
+          e.preventDefault();
+          const button = e.target,
+                rect = button.getBoundingClientRect(),
+                originalBtn = this,
+                btnHeight = rect.height,
+                btnWidth = rect.width;
+          let posMouseX = 0,
+              posMouseY = 0;
+          
+          if (isMobile) {
+            posMouseX = e.changedTouches[0].pageX - rect.left;
+            posMouseY = e.changedTouches[0].pageY - rect.top;
+          } else {
+            posMouseX = e.x - rect.left;
+            posMouseY = e.y - rect.top;
+          }
+          
+          const baseCSS =  `position: absolute;
+                            width: ${btnWidth * 2}px;
+                            height: ${btnWidth * 2}px;
+                            transition: all linear 700ms;
+                            transition-timing-function:cubic-bezier(0.250, 0.460, 0.450, 0.940);
+                            border-radius: 50%;
+                            background: var(--color-ripple);
+                            top:${posMouseY - btnWidth}px;
+                            left:${posMouseX - btnWidth}px;
+                            pointer-events: none;
+                            transform:scale(0)`
+          
+          var rippleEffect = document.createElement("span");
+          rippleEffect.style.cssText = baseCSS;
+          
+          currentBtn.style.overflow = "hidden";
+          this.appendChild(rippleEffect);
+          
+          setTimeout( function() { 
+            rippleEffect.style.cssText = baseCSS + `transform:scale(1); opacity: 0;`;
+          }, 5);
+          
+          setTimeout( function() {
+            rippleEffect.remove();
+            window.location.href = currentBtn.href;
+          },700);
+        })
+      }
+    </script>
+  </body>
+</html>

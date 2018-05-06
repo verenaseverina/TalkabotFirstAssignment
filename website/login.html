@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="login-wrapper ">
+      <!-- START Login Background Pic Wrapper-->
+      <div class="bg-pic">
+        <!-- START Background Pic-->
+        <img src="assets/img/login-bg.jpg">
+        <!-- END Background Pic-->
+      </div>
+      <!-- END Login Background Pic Wrapper-->
+      <!-- START Login Right Container-->
+      <div class="login-container bg-white">
+        <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
+          <img src="assets/img/2-09.png" alt="logo" data-src="assets/img/2-09.png" height="20">
+          <p class="p-t-35">Sign into your Talkabot account</p>
+          <!-- START Login Form -->
+          <form id="form-login" class="p-t-15" role="form" action="index.html">
+            <!-- START Form Control-->
+            <div class="form-group form-group-default">
+              <label>Login</label>
+              <div class="controls">
+                <input type="text" name="username" placeholder="User Name" class="form-control" required>
+              </div>
+            </div>
+            <!-- END Form Control-->
+            <!-- START Form Control-->
+            <div class="form-group form-group-default">
+              <label>Password</label>
+              <div class="controls">
+                <input type="password" class="form-control" name="password" placeholder="Credentials" required>
+              </div>
+            </div>
+            <!-- START Form Control-->
+            <div class="row">
+              <div class="col-md-6 no-padding">
+                <div class="checkbox ">
+                  <input type="checkbox" value="1" id="checkbox1">
+                  <label for="checkbox1">Keep Me Signed in</label>
+                </div>
+              </div>
+              <div class="col-md-6 text-right">
+                <a href="register.html" class="text-info small">Don't have an account yet?</a>
+              </div>
+            </div>
+            <!-- END Form Control-->
+            <button class="btn m-t-10 log_in" type="submit">Sign in</button>
+          </form>
+          <!--END Login Form-->
+          <div class="pull-bottom sm-pull-bottom">
+            <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
+              <div class="col-sm-3 col-md-2 no-padding">
+                <img alt="" class="m-t-5" data-src="assets/img/demo/pages_icon.png" data-src-retina="assets/img/demo/pages_icon_2x.png" height="60" src="assets/img/demo/pages_icon.png" width="60">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END Login Right Container-->
+    </div>
+    <!-- BEGIN VENDOR JS -->
+    <script>
+    $(function()
+    {
+      $('#form-login').validate()
+    })
+    </script>
+  </body>
+</html>
